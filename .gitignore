@@ -1,0 +1,9 @@
+# IDE
+.vscode/
+
+# python cache
+**/__pycache__/
+
+# models & data
+GeoQA-Data/
+**/*.bin
