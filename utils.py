@@ -264,7 +264,7 @@ class SeqReader(DatasetReader):
                 for know in step_knows:
                     knowledge_labels[idx][self.knowledge2index[know]] = 1.
         else:
-            knowledge_labels = np.zeros((1, 50), dtype=np.float32)
+            knowledge_labels = np.zeros((1, len(self.knowledge_explanations)), dtype=np.float32)
 
         # if self.training:
         #     knowledge_labels = disturb_labels(torch.tensor(knowledge_labels, dtype=torch.float32)).numpy()

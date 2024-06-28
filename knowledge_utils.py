@@ -4,8 +4,8 @@ from torch.nn.utils.rnn import pad_sequence
 
 def select_explanations_by_prediction(
     logits: torch.FloatTensor,
-    knowledge_description_input_ids: torch.LongTensor,
-    knowledge_description_attention_mask: torch.LongTensor,
+    knowledge_explanation_input_ids: torch.LongTensor,
+    knowledge_explanation_attention_mask: torch.LongTensor,
     max_length: int = 256,
     threshold: float = 0.5,
 ):
@@ -16,8 +16,8 @@ def select_explanations_by_prediction(
     curr_knowledge_description_input_ids, curr_knowledge_description_attention_mask = [], []
     curr_indices = []
     for index in knowledge_indices:
-        input_ids = knowledge_description_input_ids.index_select(0, index)
-        attention_mask = knowledge_description_attention_mask.index_select(0, index)
+        input_ids = knowledge_explanation_input_ids.index_select(0, index)
+        attention_mask = knowledge_explanation_attention_mask.index_select(0, index)
         curr_input_ids, curr_attention_mask, indices = _merge_multiple_input_ids_and_mask(
             input_ids=input_ids,
             attention_mask=attention_mask,

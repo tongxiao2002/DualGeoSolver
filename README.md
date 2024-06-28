@@ -2,9 +2,9 @@
 
 Official implementation of the IJCAI-24 paper [Learning to Solve Geometry Problems via Simulating Human Dual-Reasoning Process](https://arxiv.org/abs/2405.06232).
 
-## Datasets
+## Datasets & Checkpoints
 
-All the datasets (GeoQA and GeoQA+) can be found in [here](https://rec.ustc.edu.cn/share/fd0812c0-1dc5-11ef-9485-a15417b8b58d).
+All the datasets (GeoQA and GeoQA+) and checkpoints can be found in [here](https://rec.ustc.edu.cn/share/fd0812c0-1dc5-11ef-9485-a15417b8b58d).
 
 Unzip the tarball by running:
 
@@ -22,7 +22,7 @@ Our constructed knowledge base is presented in `geometry-knowledges-chinese.json
 
 Firstly, download ViTMAE checkpoint from [here](https://rec.ustc.edu.cn/share/fd0812c0-1dc5-11ef-9485-a15417b8b58d) and put it in your working directory.
 
-Secondly, download Chinese-Roberta checkpoint from [huggingface](https://huggingface.co/hfl/chinese-roberta-wwm-ext) and put it in `chinese-roberta-wwm-ext` directory.
+Secondly, download Chinese-RoBERTa checkpoint from [huggingface](https://huggingface.co/hfl/chinese-roberta-wwm-ext) and put it in `chinese-roberta-wwm-ext` directory.
 
 Now, your working directory should looks like this:
 

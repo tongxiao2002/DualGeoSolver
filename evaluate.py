@@ -212,7 +212,7 @@ class SimpleSeq2Seq(Model):
 
         self.sep_token_id = self.vocab._token_to_index['tokens']['@@sep@@']
         self.knowledge_max_length = 320
-        self.knowledge_threshold = 0.5
+        self.knowledge_threshold = 0.7 if "GeoQA+" in knowledge_explanation_file else 0.5
         self.inference_hidden_dim = 512
         self.inference_transform = torch.nn.Linear(1024, 512)
         self.knowledge_injection_module = KnowledgeInjectionModule(
@@ -227,7 +227,9 @@ class SimpleSeq2Seq(Model):
             nhead=8,
             feedforward_dim=2048,
         )
-        self.knowledge_head = nn.Linear(512, 50)
+
+        num_knowledge = 56 if "GeoQA+" in knowledge_explanation_file else 50
+        self.knowledge_head = nn.Linear(512, num_knowledge)
 
         self.bert_tokenizer = BertTokenizer.from_pretrained("./chinese-roberta-wwm-ext")
         self.knowledge_explanations = json.load(open(knowledge_explanation_file, "r", encoding="utf-8"))
